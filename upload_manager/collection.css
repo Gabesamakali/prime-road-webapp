@@ -1,0 +1,196 @@
+/* Page Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Content with background */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    /* Background image */
+    background-image: url('background.jpg'); /* replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* White transparent overlay */
+.content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* white with 60% opacity */
+    z-index: 0;
+}
+
+/* Make content appear above overlay */
+.content > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* Glassmorphism card style */
+.map,
+.upload-history,
+.record {
+    background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+    backdrop-filter: blur(10px);          /* blur the background behind */
+    -webkit-backdrop-filter: blur(10px);  /* for Safari */
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #000; /* make text readable */
+}
+
+/* Title */
+.title {
+    color: #00b33c;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+/* User Info */
+.user-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.user-header .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+}
+
+.user-role {
+    font-size: 12px;
+    opacity: 0.8;
+    color: black;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #c53030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* Divider Line */
+.section-divider {
+    border: none;
+    height: 4px;
+    background-color: orange;
+    margin: 0 0 15px 0;
+}
+
+/* Record Buttons */
+.record-buttons {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+}
+.record-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.start {
+    background: black;
+    color: green;
+}
+.stop {
+    background: black;
+    color: red;
+}
+
+/* Sync Button */
+.sync-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* -------- Responsive adjustments -------- */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        padding: 0px;
+    }
+
+    .map {
+        flex: 2;
+        margin-right: 20px;
+    }
+
+    .upload-history {
+        flex: 1;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .map,
+    .upload-history {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

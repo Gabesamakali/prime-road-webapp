@@ -1,0 +1,211 @@
+/* Page Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    
+}
+
+/* Content with background */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    /* Background image */
+    background-image: url('background.jpg'); /* replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* White transparent overlay */
+.content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* white with 60% opacity */
+    z-index: 0;
+}
+
+/* Make content appear above overlay */
+.content > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Title */
+.title {
+    color: #00b33c;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* User Info */
+.user-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.user-header .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+}
+
+.user-role {
+    font-size: 12px;
+    opacity: 0.8;
+    color: black;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #c53030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Divider Line */
+.section-divider {
+    border: none;
+    height: 4px;
+    background-color: orange;
+    margin: 0 0 15px 0;
+}
+
+/* Add Button */
+.btn-add {
+    background-color: #008cff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #006fd1;
+    text-decoration: none;
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.filter-bar input,
+.filter-bar button,
+.filter-bar a {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-bar button {
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.filter-bar button:hover {
+    background-color: darkblue;
+}
+
+.reset-btn {
+    background: red;
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.2s ease-in-out;
+}
+
+.reset-btn:hover {
+    background-color: darkred;
+}
+
+/* Maintenance Log Table */
+.log-table th,
+.log-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.log-table th {
+    background-color: rgba(255, 255, 255, 0.8); /* match card transparency */
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.log-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.6); /* slightly more transparent */
+}
+
+.log-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Proof Links */
+.log-table a {
+    margin-right: 5px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.log-table a:hover {
+    opacity: 0.8;
+}
+
+.menu li a.active {
+    background-color: #00b33c;
+}
